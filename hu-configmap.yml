@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hospital-users-configmap
+data:
+  DATASOURCE_HOST: postgres-hu:5432
+  SCHEMA: users
+  BOOTSTRAP_SERVERS: kafka-broker-service:9092
+  SERVER_PORT: '8081'

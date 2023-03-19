@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-hf
+spec:
+  serviceName: postgres-hf
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-hf
+  template:
+    metadata:
+      labels:
+        app: postgres-hf
+    spec:
+      containers:
+        - name: hospital-finance-pg
+          image: postgres:15.1-alpine
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secrets
+                  key: DATASOURCE_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secrets
+                  key: DATASOURCE_PASSWORD
+      volumes:
+        - name: postgres-hf-db-disk
+          hostPath:
+            path: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-hf-db-disk
+      spec:
+        accessModes:
+          - "ReadWriteOnce"
+        resources:
+          requests:
+            storage: 1Gi

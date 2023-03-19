@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospital-finance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hospital-finance
+  template:
+    metadata:
+      labels:
+        app: hospital-finance
+    spec:
+      containers:
+        - name: hospital-finance
+          image: kermakovich/hospital-finance
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082
+          env:
+            - name: DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secrets
+                  key: DATASOURCE_USERNAME
+            - name: DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secrets
+                  key: DATASOURCE_PASSWORD
+            - name: DATASOURCE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: DATASOURCE_HOST
+            - name: SCHEMA
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: SCHEMA
+            - name: BOOTSTRAP_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: BOOTSTRAP_SERVERS
+            - name: ROOT_LOG_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: ROOT_LOG_LEVEL
+            - name: APP_LOG_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: APP_LOG_LEVEL
+            - name: HOSPITAL_USERS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: HOSPITAL_USERS_HOST
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: SERVER_PORT
