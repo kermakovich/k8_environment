@@ -4,7 +4,7 @@ cd src/infra
 
 kubectl apply -f zoo-configmap.yml
 kubectl apply -f zoo-service.yml
-kubectl apply -f zoo-deployment.yml
+kubectl apply -f zoo-stateful.yml
 
 #Kafka
 
@@ -29,11 +29,10 @@ kubectl apply -f zoo-deployment.yml
 #kubectl apply -f hu-service.yml
 #kubectl apply -f hu-deployment.yml
 
-
 #Hospital finance microservice
 
-# kubectl apply -f hf-configmap.yml
-# kubectl apply -f hf-service.yml
-# kubectl apply -f hf-deployment.yml
+#kubectl apply -f hf-configmap.yml
+#kubectl apply -f hf-service.yml
+#kubectl apply -f hf-deployment.yml
 
 

@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: zookeeper
 spec:
@@ -29,3 +29,16 @@ spec:
                 configMapKeyRef:
                   name: zookeeper-configmap
                   key: ZOOKEEPER_TICK_TIME
+      volumes:
+        - name: zookeeper-disk
+          hostPath:
+            path: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: zookeeper-disk
+      spec:
+        accessModes:
+          - "ReadWriteOnce"
+        resources:
+          requests:
+            storage: 1Gi
