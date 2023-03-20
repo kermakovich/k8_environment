@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-hu
+spec:
+  serviceName: postgres-hu
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-hu
+  template:
+    metadata:
+      labels:
+        app: postgres-hu
+    spec:
+      containers:
+        - name: hospital-users-pg
+          image: postgres:15.1-alpine
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secrets
+                  key: DATASOURCE_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pg-secrets
+                  key: DATASOURCE_PASSWORD
+      volumes:
+        - name: postgres-hu-db-disk
+          hostPath:
+            path: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-hu-db-disk
+      spec:
+        accessModes:
+          - "ReadWriteOnce"
+        resources:
+          requests:
+            storage: 1Gi
