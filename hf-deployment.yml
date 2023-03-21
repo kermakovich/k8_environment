@@ -19,26 +19,16 @@ spec:
           ports:
             - containerPort: 8082
           env:
-            - name: DATASOURCE_USERNAME
+            - name: MONGO_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: pg-secrets
-                  key: DATASOURCE_USERNAME
-            - name: DATASOURCE_PASSWORD
+                  name: hf-secrets
+                  key: MONGO_USERNAME
+            - name: MONGO_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: pg-secrets
-                  key: DATASOURCE_PASSWORD
-            - name: DATASOURCE_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: hospital-finance-configmap
-                  key: DATASOURCE_HOST
-            - name: SCHEMA
-              valueFrom:
-                configMapKeyRef:
-                  name: hospital-finance-configmap
-                  key: SCHEMA
+                  name: hf-secrets
+                  key: MONGO_PASSWORD
             - name: BOOTSTRAP_SERVERS
               valueFrom:
                 configMapKeyRef:
@@ -64,3 +54,18 @@ spec:
                 configMapKeyRef:
                   name: hospital-finance-configmap
                   key: SERVER_PORT
+            - name: MONGO_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: MONGO_HOST
+            - name: MONGO_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: MONGO_PORT
+            - name: MONGO_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: hospital-finance-configmap
+                  key: MONGO_DB
