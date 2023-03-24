@@ -23,6 +23,13 @@ kubectl apply -f mongo-init.yml
 kubectl apply -f hf-mongo-service.yml
 kubectl apply -f hf-mongo-stateful.yml
 
+#Redis for hospital-finance
+
+kubectl apply -f hf-redis-secrets.yml
+kubectl apply -f hf-redis-configmap.yml
+kubectl apply -f hf-redis-service.yml
+kubectl apply -f hf-redis-stateful.yml
+
 #Hospital users microservice
 
 kubectl apply -f hu-configmap.yml
