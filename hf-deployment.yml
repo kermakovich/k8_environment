@@ -29,21 +29,6 @@ spec:
                 secretKeyRef:
                   name: hf-secrets
                   key: MONGO_PASSWORD
-            - name: REDIS_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: hospital-finance-configmap
-                  key: REDIS_PORT
-            - name: REDIS_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: hospital-finance-configmap
-                  key: REDIS_HOST
-            - name: REDIS_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: hf-redis-secrets
-                  key: REDIS_PASSWORD
             - name: BOOTSTRAP_SERVERS
               valueFrom:
                 configMapKeyRef:

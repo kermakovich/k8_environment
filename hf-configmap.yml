@@ -11,5 +11,3 @@ data:
   MONGO_HOST: hf-mongo
   MONGO_PORT: '27017'
   MONGO_DB: hospital-finance
-  REDIS_HOST: hf-redis
-  REDIS_PORT: '6379'

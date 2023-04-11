@@ -10,12 +10,6 @@ kubectl apply -f kf-configmap.yml
 kubectl apply -f kf-service.yml
 kubectl apply -f kf-deployment.yml
 
-#Postgres for hospital-users
-
-kubectl apply -f pg-secrets.yml
-kubectl apply -f pg-service.yml
-kubectl apply -f pg-stateful.yml
-
 #MongoDB for hospital-finance
 
 kubectl apply -f hf-mongo-secrets.yml
@@ -23,12 +17,11 @@ kubectl apply -f mongo-init.yml
 kubectl apply -f hf-mongo-service.yml
 kubectl apply -f hf-mongo-stateful.yml
 
-#Redis for hospital-finance
+#MongoDB for hospital-users
 
-kubectl apply -f hf-redis-secrets.yml
-kubectl apply -f hf-redis-configmap.yml
-kubectl apply -f hf-redis-service.yml
-kubectl apply -f hf-redis-stateful.yml
+kubectl apply -f hu-mongo-init.yml
+kubectl apply -f hu-mongo-service.yml
+kubectl apply -f hu-mongo-stateful.yml
 
 #Hospital users microservice
 
@@ -42,5 +35,3 @@ kubectl apply -f hf-secrets.yml
 kubectl apply -f hf-configmap.yml
 kubectl apply -f hf-service.yml
 kubectl apply -f hf-deployment.yml
-
-
