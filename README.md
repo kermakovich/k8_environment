@@ -15,9 +15,8 @@ Steps:
 Run run.sh script step by step.
 1. Run Zookeeper part. Make sure it starts.
 2. Run kafka part. Make sure it starts.
-3. Run postgres part for hospital-users microservice. Make sure it starts.
+3. Run mongo part for hospital-users microservice. Make sure it starts.
 4. Run mongo part for hospital-finance microservice. Make sure it starts.
-5. Run redis cache for hospital-finance microservice. Make sure it starts.
 6. Run hospital-users microservice. Make sure they start.
 7. Run hospital-finance microservice. Make sure they start.
 
