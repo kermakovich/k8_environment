@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hospital-finance-serviceaccount
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -12,6 +19,7 @@ spec:
       labels:
         app: hospital-finance
     spec:
+      serviceAccountName: hospital-finance-serviceaccount
       containers:
         - name: hospital-finance
           image: kermakovich/hospital-finance

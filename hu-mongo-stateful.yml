@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: hu-mongo
 spec:
-  serviceName: hu-mongo
+  serviceName: hu-mongo-service
   replicas: 1
   selector:
     matchLabels:

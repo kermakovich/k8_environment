@@ -39,3 +39,5 @@ kubectl delete -f hf-deployment.yml
 #Istio
 
 kubectl delete -f ingress.yml
+kubectl delete -f auth-hf-mongo.yml
+kubectl delete -f auth-hu-mongo.yml
