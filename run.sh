@@ -39,6 +39,7 @@ kubectl apply -f hu-mongo-stateful.yml
 kubectl apply -f hu-configmap.yml
 kubectl apply -f hu-service.yml
 kubectl apply -f hu-deployment.yml
+kubectl apply -f hu-service-account.yml
 
 #Hospital finance microservice
 
