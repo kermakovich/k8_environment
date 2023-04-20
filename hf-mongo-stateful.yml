@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: hf-mongo
 spec:
-  serviceName: hf-mongo
+  serviceName: hf-mongo-service
   replicas: 1
   selector:
     matchLabels:

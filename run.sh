@@ -1,3 +1,14 @@
+#Istio
+
+minikube addons enable ingress
+kubectl apply -f ingress.yml
+
+#AuthorizationPolicy
+
+kubectl apply -f auth-hu-mongo.yml
+kubectl apply -f auth-hf-mongo.yml
+
+
 #Zookeeper
 
 kubectl apply -f zoo-configmap.yml
@@ -28,6 +39,7 @@ kubectl apply -f hu-mongo-stateful.yml
 kubectl apply -f hu-configmap.yml
 kubectl apply -f hu-service.yml
 kubectl apply -f hu-deployment.yml
+kubectl apply -f hu-service-account.yml
 
 #Hospital finance microservice
 
