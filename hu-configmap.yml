@@ -4,7 +4,7 @@ metadata:
   name: hospital-users-configmap
 data:
   DATASOURCE_HOST: postgres-hu:5432
-  BOOTSTRAP_SERVERS: kafka-broker-service:9092
+  BOOTSTRAP_SERVERS: my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
   SERVER_PORT: '8081'
   MONGO_HOST: hu-mongo-service
   MONGO_PORT: '27018'
