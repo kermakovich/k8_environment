@@ -1,15 +1,3 @@
-#Zookeeper
-
-kubectl delete -f zoo-configmap.yml
-kubectl delete -f zoo-service.yml
-kubectl delete -f zoo-stateful.yml
-
-#Kafka
-
-kubectl delete -f kf-configmap.yml
-kubectl delete -f kf-service.yml
-kubectl delete -f kf-deployment.yml
-
 #MongoDB for hospital-finance
 
 kubectl delete -f hf-mongo-secrets.yml
@@ -36,8 +24,8 @@ kubectl delete -f hf-configmap.yml
 kubectl delete -f hf-service.yml
 kubectl delete -f hf-deployment.yml
 
-#Istio
+#Kafka
 
-kubectl delete -f ingress.yml
-kubectl delete -f auth-hf-mongo.yml
-kubectl delete -f auth-hu-mongo.yml
+kubectl delete -f kafka.yml
+kubectl delete -f kafka-service.yml
+

@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: hospital-finance-configmap
 data:
-  BOOTSTRAP_SERVERS: kafka-broker-service:9092
+  BOOTSTRAP_SERVERS: my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
   ROOT_LOG_LEVEL: INFO
   APP_LOG_LEVEL: DEBUG
   HOSPITAL_USERS_HOST: hospital-users-service:8090

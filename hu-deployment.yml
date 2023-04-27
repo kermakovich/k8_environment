@@ -12,7 +12,6 @@ spec:
       labels:
         app: hospital-users
     spec:
-      serviceAccountName: hospital-users-serviceaccount
       containers:
         - name: hospital-users
           image: kermakovich/hospital-users
